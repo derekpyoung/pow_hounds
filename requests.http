@@ -1,0 +1,54 @@
+
+############  POSTS Requests  #################
+
+#posts index
+###
+GET http://localhost:3000/posts
+
+#post show
+###
+GET http://localhost:3000/posts/1
+
+#post create
+###
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "user_id": 2,
+  "title": "blue bird day!",
+  "runs_taken": 11,
+  "snow": "4",
+  "weather": "blue skies",
+  "description": "great day in the sun",
+  "resort": "snoqualmie central",
+  "photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.2qiuosQijDiSp8amva23FwAAAA%26pid%3DApi&f=1"
+   
+}
+
+#Post Delete
+###
+DELETE http://localhost:3000/posts/4
+
+
+################# USERS Requests ########################
+#user index
+###
+GET http://localhost:3000/users
+
+
+
+#user create
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "bob",
+  "email": "bob@email",
+  "password": "password"
+}
+
+#user show
+###
+GET http://localhost:3000/users/1
