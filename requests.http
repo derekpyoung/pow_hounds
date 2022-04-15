@@ -52,3 +52,16 @@ Content-Type: application/json
 #user show
 ###
 GET http://localhost:3000/users/1
+
+
+################### API CALL #######################
+
+GET https://api.weather.gov/points/47.422,-121.412
+#after this call go get url from forecast
+
+
+###
+GET https://api.weather.gov/gridpoints/SEW/151,53/forecast
+# periods = days
+# period 1 = day 1 ... 
+#period[0][:detailedForecast] should return todays detailed forecast
