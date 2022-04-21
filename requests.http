@@ -78,9 +78,3 @@ GET http://localhost:3000/forecast
 
 
 
-
-# GET https://maps.googleapis.com/maps/api/js?key=AIzaSyAV_nQZ7Muoa8v3Tj5OD1VO9L4xU14Bx8Y&callback=initMap
-
-
-
-# key = AIzaSyAV_nQZ7Muoa8v3Tj5OD1VO9L4xU14Bx8Y
