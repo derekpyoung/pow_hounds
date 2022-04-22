@@ -12,8 +12,8 @@ class ForecastsController < ApplicationController
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["X-RapidAPI-Host"] = 'ski-resort-forecast.p.rapidapi.com'
-    request["X-RapidAPI-Key"] = '14d22ac7a2mshae0f2dd3e38db5bp1374f2jsna6dfac09cddc'
+ #Rapid Host
+ #rapid Key
 
     response = http.request(request)
     weather =  JSON.parse(response.read_body)
