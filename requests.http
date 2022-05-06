@@ -1,3 +1,5 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjUxNzg3NzExfQ.dfuRqp63jOpzAsI6CrUmeSVC8RIA5uurx4nhvPNdLx0
+
 
 ############  POSTS Requests  #################
 
@@ -9,26 +11,40 @@ GET http://localhost:3000/posts
 ###
 GET http://localhost:3000/posts/1
 
+###
+GET http://localhost:3000/current
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+
+
 #post create
 ###
 POST http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjUxNzg3NzExfQ.dfuRqp63jOpzAsI6CrUmeSVC8RIA5uurx4nhvPNdLx0
 Content-Type: application/json
 
 {
-  "user_id": 2,
-  "title": "blue bird day!",
-  "runs_taken": 11,
-  "snow": "4",
-  "weather": "blue skies",
-  "description": "great day in the sun",
+  "title": "blueay!",
+  "runs_taken": 1441,
+  "snow": "6",
+  "weather": "basdfies",
+  "description": "great fsshe sun",
   "resort": "snoqualmie central",
   "photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.2qiuosQijDiSp8amva23FwAAAA%26pid%3DApi&f=1"
-   
 }
 
 #Post Delete
 ###
-DELETE http://localhost:3000/posts/4
+DELETE http://localhost:3000/posts/8
+
+###
+GET http://localhost:3000/users/13/posts 
+Content-Type: application/json
+
+{
+  "user_id": 13
+}
 
 
 ################# USERS Requests ########################
@@ -44,33 +60,51 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "bob",
-  "email": "bob@email",
-  "password": "password"
+  "name": "test",
+  "email": "test@email.com",
+  "password": "password",
+  "password_confirmation": "password"
 }
 
 #user show
 ###
 GET http://localhost:3000/users/1
 
-
-################### API CALL #######################
-
-GET https://api.weather.gov/points/47.422,-121.412
-#after this call go get url from forecast
-
-
 ###
-GET https://api.weather.gov/gridpoints/SEW/151,53/forecast
-# periods = days
-# period 1 = day 1 ... 
-#period[0][:detailedForecast] should return todays detailed forecast
+GET http://localhost:3000/userposts/1
 
-
-#lat and long
+# ###
+# GET https://api.weather.gov/gridpoints/SEW/151,53/forecast
+# # periods = days
+# # period 1 = day 1 ... 
+# #period[0][:detailedForecast] should return todays detailed forecast
+#three day
 ###
-GET http://localhost:3000/forecast
+# GET http://localhost:3000/threeDay
+# Content-Type: application/json
 
+# {
+#   "resort": "baker"
+# }
+
+#lat and long gets snow in inches"
+###
+GET http://localhost:3000/forecast?resort=jacksonhole
+# Content-Type: application/json
+
+# {
+#   "resort": "snowbird"
+# }
+
+# sessions create
+###
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "boobs@email",
+  "password": "password"
+}
 
 
 

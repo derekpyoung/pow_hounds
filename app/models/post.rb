@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   require 'net/http'
   require 'openssl'
   require 'json'
+  belongs_to :user 
 
 
   

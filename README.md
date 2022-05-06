@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+april 29th 
+  got correct api calls
+  need to finish them being dynamic
+  figure out how i want app set up to lookg
+  add delete button on posts for user if logged in
+  front end create post/useers working.
+
+  need to fix dunamic url for requests. getting turkey back... then add bootstrap and make into cards. maybe modals. 
+  
