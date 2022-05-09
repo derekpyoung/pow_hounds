@@ -46,6 +46,14 @@ Content-Type: application/json
   "user_id": 13
 }
 
+###
+PATCH http://localhost:3000/users/22
+Content-Type: application/json
+
+{
+  "name": "teeter"
+}
+
 
 ################# USERS Requests ########################
 #user index
