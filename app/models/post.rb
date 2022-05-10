@@ -4,6 +4,10 @@ class Post < ApplicationRecord
   require 'openssl'
   require 'json'
   belongs_to :user 
+  validates :title, presence: true
+  validates :description, presence: true 
+  validates :resort, presence: true
+
 
 
   

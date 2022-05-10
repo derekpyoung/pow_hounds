@@ -31,3 +31,5 @@
 
 # api tokens 
 tokens.yml
+upload_api_keys.yml
+.env

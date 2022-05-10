@@ -25,12 +25,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjUxNzg3N
 Content-Type: application/json
 
 {
+  "user_id": 1,
   "title": "blueay!",
-  "runs_taken": 1441,
-  "snow": "6",
+  "runs_taken": 41,
+  "snow": "33",
   "weather": "basdfies",
   "description": "great fsshe sun",
-  "resort": "snoqualmie central",
+  "resort": "snoqualmie",
   "photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.2qiuosQijDiSp8amva23FwAAAA%26pid%3DApi&f=1"
 }
 
@@ -88,21 +89,21 @@ GET http://localhost:3000/userposts/1
 # #period[0][:detailedForecast] should return todays detailed forecast
 #three day
 ###
-# GET http://localhost:3000/threeDay
-# Content-Type: application/json
+GET http://localhost:3000/threeDay
+Content-Type: application/json
 
-# {
-#   "resort": "baker"
-# }
+{
+  "resort": "baker"
+}
 
 #lat and long gets snow in inches"
 ###
-GET http://localhost:3000/forecast?resort=jacksonhole
-# Content-Type: application/json
+GET http://localhost:3000/forecast?resort=snowbird
+Content-Type: application/json
 
-# {
-#   "resort": "snowbird"
-# }
+{
+  "resort": "snowbird"
+}
 
 # sessions create
 ###

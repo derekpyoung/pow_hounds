@@ -20,7 +20,7 @@ class ForecastsController < ApplicationController
     
   end 
 
-  def lat_long
+  def snow_inches
     url = URI("https://ski-resort-forecast.p.rapidapi.com/#{params[:resort]}/snowConditions?units=i")
     lat_long_arr = []
     http = Net::HTTP.new(url.host, url.port)

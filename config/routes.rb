@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get '/users/:id', to: "users#show"
   get '/users/:id/posts', to: "posts#users_posts"
 
-  get '/forecast', to: "forecasts#lat_long" #lat and long for inputed resort.
-  get '/threeDay', to: "forecasts#threeDay"
+  get '/forecast', to: "forecasts#snow_inches" #snow in inches
+  get '/threeDay', to: "forecasts#threeDay" #3 day summery 
 
   post '/sessions', to: "sessions#create"
 
