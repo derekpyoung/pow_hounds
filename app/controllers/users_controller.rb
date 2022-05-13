@@ -1,18 +1,22 @@
 class UsersController < ApplicationController
 
   def create 
+    response = Cloudinary::Uploader.upload(params[:profile_picture], resource_type: :auto)
+    cloudinary_url = response["secure_url"]
     user = User.new(
       name: params[:name],
       email: params[:email],
-      profile_picture: params[:profile_picture],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
+      profile_picture: cloudinary_url,
     )
-    if user.save!
-      render json: {message: "User successfully created."}
-    else  
-      render json: { errors: user.errors.full_messages }, status: :bad_request
-    end 
+    if user.save
+      render json: user.as_json
+    else
+      render json: {errors: user.errors.full_messages}, status: 422
+    end
+  
+
   end 
 
   def index 

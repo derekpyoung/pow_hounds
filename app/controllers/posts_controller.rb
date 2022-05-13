@@ -56,8 +56,9 @@ class PostsController < ApplicationController
       # render json: three_day["summary3Day"]
       p three_day["summary3Day"]
 
-  
-
+      response = Cloudinary::Uploader.upload(params[:photo], resource_type: :auto)
+      cloudinary_url = response["secure_url"]
+        
       post = Post.new(
         user_id: current_user.id,
         title: params[:title],
@@ -66,10 +67,13 @@ class PostsController < ApplicationController
         weather: three_day["summary3Day"],
         description: params[:description],
         resort: params[:resort],
-        photo: params[:photo]
+        photo: cloudinary_url
       )
-      post.save
-      render json: post
+      if post.save
+        render json: post
+      else  
+        render json: {error: post.errors.full_messages}, status: 422
+      end 
    
   end
 

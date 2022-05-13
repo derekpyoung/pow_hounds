@@ -1,0 +1,22 @@
+require 'ffaker'``
+
+5.times do 
+  resorts = ["snoqualmie", "baker", "stevens", "mounthood", "labradormountain"]
+  u = User.new(
+   name: FFaker::Name.first_name,
+   email: FFaker::Name.first_name + "@email.com",
+   password: "password",
+   profile_picture: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.7AyNM5MUrz4nGeecFsE6yQHaEX%26pid%3DApi&f=1"
+  )
+  u.save 
+  p = Post.new(
+    user_id: rand(1..5),
+    title: FFaker::Game.title,
+    description: FFaker::FreedomIpsum.phrase,
+    resort: resorts[rand(0..4)],
+    photo: "",
+    runs_taken: rand(1..58),
+    snow: "4"
+  )
+  p.save
+end 
