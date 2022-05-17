@@ -26,5 +26,7 @@ Rails.application.routes.draw do
 
   get '/userposts/:id', to: "users#posts"
 
+  get '/home', to: "users#home"
+
 
 end
