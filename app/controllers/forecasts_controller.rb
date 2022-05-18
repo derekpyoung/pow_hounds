@@ -4,7 +4,7 @@ class ForecastsController < ApplicationController
   require 'openssl'
   require 'json'
 
-  def threeDay
+  def threeDay()
     url = URI("https://ski-resort-forecast.p.rapidapi.com/#{params[:resort]}/forecast?units=i&el=top")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -16,7 +16,6 @@ class ForecastsController < ApplicationController
     three_day = JSON.parse(response.read_body)
     render json: three_day
     # p three_day["summary3Day"]
-    
   end 
 
   def snow_inches

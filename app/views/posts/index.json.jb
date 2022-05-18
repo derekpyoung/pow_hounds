@@ -10,6 +10,7 @@
       photo: post.photo,
       id: post.id,
       user: post.user.profile_picture,
+      name: post.user.name,
   
   }
 end
