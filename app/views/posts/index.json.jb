@@ -1,0 +1,16 @@
+@posts.map do |post|
+  {
+   
+      title: post.title,
+      user_id: post.user_id,
+      description: post.description,
+      resort: post.resort,
+      runs_taken: post.runs_taken,
+      snow: post.snow,
+      photo: post.photo,
+      id: post.id,
+      user: post.user.profile_picture,
+      name: post.user.name,
+  
+  }
+end

@@ -1,28 +1,29 @@
 class PostsController < ApplicationController
 
   def index 
-    render json: Post.all
+    @posts = Post.all
+    render template: 'posts/index'
   end 
 
   def users_posts
     user_id = params[:id]
     p "user id #{user_id}"
     @user = User.find(user_id)
-    p current_user
     @posts = @user.posts
-    render json: @posts
+    render template: 'posts/index'
 
   end 
 
   def show 
     id = params[:id]
-    post = Post.find_by(id: id)
-    render json: post
+    @post = Post.find_by(id: id)
+    render json: @post
   end 
 
   def current
     render json: current_user.id
   end 
+
 
   
 
@@ -59,7 +60,7 @@ class PostsController < ApplicationController
       response = Cloudinary::Uploader.upload(params[:photo], resource_type: :auto)
       cloudinary_url = response["secure_url"]
         
-      post = Post.new(
+      @post = Post.new(
         user_id: current_user.id,
         title: params[:title],
         runs_taken: params[:runs_taken],
@@ -69,8 +70,8 @@ class PostsController < ApplicationController
         resort: params[:resort],
         photo: cloudinary_url
       )
-      if post.save
-        render json: post
+      if @post.save
+        render json: @post
       else  
         render json: {error: post.errors.full_messages}, status: 422
       end 
@@ -79,8 +80,8 @@ class PostsController < ApplicationController
 
   def destroy 
     id = params[:id]
-    post = Post.find_by(id: id)
-    post.delete
+    @post = Post.find_by(id: id)
+    @post.delete
     render json: post
   end 
 

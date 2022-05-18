@@ -4,7 +4,7 @@
 
 #posts index
 ###
-GET http://localhost:3000/posts
+GET http://localhost:3000/posts.json
 
 #post show
 ###
@@ -79,7 +79,7 @@ Content-Type: application/json
 GET http://localhost:3000/users/1
 
 ###
-GET http://localhost:3000/userposts/1
+GET http://localhost:3000/userposts/2
 
 # ###
 # GET https://api.weather.gov/gridpoints/SEW/151,53/forecast

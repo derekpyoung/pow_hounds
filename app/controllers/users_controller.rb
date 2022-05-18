@@ -15,8 +15,6 @@ class UsersController < ApplicationController
     else
       render json: {errors: user.errors.full_messages}, status: 422
     end
-  
-
   end 
 
   def index 
@@ -37,16 +35,19 @@ class UsersController < ApplicationController
   def update 
     id = params[:id]
     u = User.find_by(id: id)
-    u.name = params[:name] || u.name 
-    u.profile_picture = params[:profile_picture] || u.profile_picture
-    u.email = params[:email] || u.email 
-    if u.save 
-      render json: u.as_json
-    else 
-      render json: {
-        error: "did not save"
-      }
+    if current_user.id == u.id 
+      u.name = params[:name] || u.name 
+      u.profile_picture = params[:profile_picture] || u.profile_picture
+      u.email = params[:email] || u.email 
     
+      if u.save 
+        render json: u.as_json
+      else 
+        render json: {
+          error: "did not save"
+        }
+      end 
+
     end 
   end 
 end

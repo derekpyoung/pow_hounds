@@ -4,9 +4,8 @@ class ForecastsController < ApplicationController
   require 'openssl'
   require 'json'
 
-  def threeDay
+  def threeDay()
     url = URI("https://ski-resort-forecast.p.rapidapi.com/#{params[:resort]}/forecast?units=i&el=top")
-
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -15,9 +14,8 @@ class ForecastsController < ApplicationController
     request["X-RapidAPI-Key"] = api_tokens["forecast_api_token"]
     response = http.request(request)
     three_day = JSON.parse(response.read_body)
-    render json: three_day["summary3Day"]
+    render json: three_day
     # p three_day["summary3Day"]
-    
   end 
 
   def snow_inches
@@ -34,12 +32,6 @@ class ForecastsController < ApplicationController
     response = http.request(request)
     weather =  JSON.parse(response.read_body)
     render json: weather 
-    puts weather
-
-    lat_long_arr << weather["basicInfo"]["lat"]
-    lat_long_arr << weather["basicInfo"]["lon"]
-    p lat_long_arr
-
   end 
   private 
 

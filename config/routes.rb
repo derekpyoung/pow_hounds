@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/users/:id/posts', to: "posts#users_posts"
 
   get '/forecast', to: "forecasts#snow_inches" #snow in inches
+  post 'forecast', to: "forecasts#snow_inches"
   get '/threeDay', to: "forecasts#threeDay" #3 day summery 
 
   post '/sessions', to: "sessions#create"
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   get '/current', to: "posts#current"
 
   get '/userposts/:id', to: "users#posts"
+
+  get '/home', to: "users#home"
 
 
 end
