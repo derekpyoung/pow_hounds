@@ -39,7 +39,6 @@ class UsersController < ApplicationController
       u.name = params[:name] || u.name 
       u.profile_picture = params[:profile_picture] || u.profile_picture
       u.email = params[:email] || u.email 
-    
       if u.save 
         render json: u.as_json
       else 
